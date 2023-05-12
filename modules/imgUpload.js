@@ -1,19 +1,17 @@
 'use strict'
-const {Storage} = require('@google-cloud/storage')
+const { Storage } = require('@google-cloud/storage')
 const fs = require('fs')
 const dateFormat = require('dateformat')
 const path = require('path');
 
 const pathKey = path.resolve('./serviceaccountkey.json')
 
-// TODO: Sesuaikan konfigurasi Storage
 const gcs = new Storage({
-    projectId: 'project_id_Anda',
+    projectId: 'submission-mgce-guntur',
     keyFilename: pathKey
 })
 
-// TODO: Tambahkan nama bucket yang digunakan
-const bucketName = 'nama_GCS_bucket_Anda'
+const bucketName = 'submission-mgce-guntur-bucket'
 const bucket = gcs.bucket(bucketName)
 
 function getPublicUrl(filename) {
